@@ -265,17 +265,30 @@ class Freepaymentbox extends PaymentModule
 		}
 
                 $config = Configuration::getMultiple($this->pb_config);
-                $this->_html .='MOD_PROD : 0 test 1 production';
                 $this->_html .= '<form action="' . $_SERVER['REQUEST_URI']. '" method="post">';
+                $this->_html .= '<fieldset>';
+		$this->_html .= '<legend><img src="'.$this->_path.'logo.gif" alt="" title="" />'.$this->l('Paramètres').'</legend>';
                 
                 foreach ($this->pb_config as $setting_name){
-                    $this->_html .= '<div class="clear">'.$setting_name.
-                            '<input type="text" name="'.$setting_name.'" value="'.$config[$setting_name].'">
-                             </div>';
-                }    
-                $this->_html .='<div class="clear"><input type="submit" class="button" name="submitFreepaymentbox" value="'
-				. $this->l('Save') . '" /></div>
-                                    </form>';
+                	$this->_html .= '<label>'.$setting_name.'</label>';
+			$this->_html .= '<div class="margin-form"><input type="text" name="'.$setting_name.'" value="'.$config[$setting_name].'">';
+			if($setting_name=='PBX_DEVISE')
+				$this->_html .= '<p class="clear">'.$this->l('pour euro -> 978, ...').'</p>';
+			
+			if($setting_name=='PBX_HASH')
+				$this->_html .= '<p class="clear">'.$this->l('généralement SHA512').'</p>';
+			
+			if($setting_name=='MODE_PROD')
+				$this->_html .= '<p class="clear">'.$this->l('MOD_PROD : 0 test 1 production').'</p>';
+			
+			$this->_html .= '</div>';
+                }
+				    
+                $this->_html .='<center><input type="submit" class="button" name="submitFreepaymentbox" value="'
+				. $this->l('Save') . '" /></center>';
+                $this->_html .='</fieldset>';
+                $this->_html .='</form>';
+                
 		return $this->_html;
     }
         

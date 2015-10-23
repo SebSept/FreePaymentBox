@@ -27,6 +27,7 @@ class FreepaymentboxCustomerreturnModuleFrontController extends ModuleFrontContr
             case 'PBX_EFFECTUE' :
                 $msg = 'Le paiement a été effectué. Votre commeande est en cours de traitement.';
                 $msg2 = 'Nous vous remercions de votre confiance.';
+                $this->context->cart->delete();
                 break;
             case 'PBX_ANNULE' :
                 $msg = 'Votre paiement a été annulé.';

@@ -3,10 +3,11 @@
  * FreePaymentBox
  * 
  * Module de paiement PayBox(TM) pour Prestashop (TM).
- * http://prestashop.seb7.fr/
+ * 
  * 
  * Fourni sans garantie.
  * 
+ * @author Claude Castello
  * @author Sébastien Monterisi   <sebastienmonterisi@yahoo.fr>  https://github.com/SebSept/FreePaymentBox   
  * @author Jean-François MAGNIER <jf.magnier@gmail.com>         https://github.com/lefakir//FreePaymentBox
  * @author ?@?                   <?>                            https://github.com/PrestaMath
@@ -125,7 +126,10 @@ class Freepaymentbox extends PaymentModule
      */
     public function hookPayment($params)
     {
-        return $this->display(__FILE__, 'payment.tpl'); // si probleme ne pas retourner de tpl pour ne rien afficher
+		if (!$this->active)
+			return;
+
+        return $this->display(__FILE__, 'payment.tpl');
     }
 
     /**

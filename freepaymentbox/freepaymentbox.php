@@ -303,7 +303,7 @@ class Freepaymentbox extends PaymentModule
                 $config = Configuration::getMultiple($this->pb_config);
                 $this->_html .= '<form action="' . $_SERVER['REQUEST_URI']. '" method="post">';
                 $this->_html .= '<fieldset>';
-		$this->_html .= '<legend><img src="'.$this->_path.'logo.gif" alt="" title="" />'.$this->l('Paramètres').'</legend>';
+		$this->_html .= '<legend><img src="'.$this->_path.'logo.png" alt="" title="" />'.$this->l('Paramètres').'</legend>';
                 
                 foreach ($this->pb_config as $setting_name){
                 	$this->_html .= '<label>'.$setting_name.'</label>';

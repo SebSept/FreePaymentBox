@@ -125,7 +125,7 @@ class Freepaymentbox extends PaymentModule
 	  return true;
 	}
 	
-        private function _saveSettings(){
+        private function saveSettings(){
             foreach ($this->pb_config as $setting_name){
                 Configuration::updateValue($setting_name,Tools::getValue($setting_name));
             }

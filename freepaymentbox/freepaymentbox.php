@@ -42,7 +42,7 @@ class Freepaymentbox extends PaymentModule
      */
     public $name = 'freepaymentbox';
     public $tab = 'payments_gateways';
-    public $version = '1.1';
+    public $version = '1.1.1';
     public $currencies = false;
 
     /**

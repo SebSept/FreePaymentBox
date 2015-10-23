@@ -18,4 +18,5 @@
  */
 *}
 <h2>Paiement sécurisé</h2>
-{$msg}
+<p>{$msg}</p>
+<p>{$msg2}</p>

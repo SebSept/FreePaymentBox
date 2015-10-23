@@ -95,6 +95,8 @@ class Freepaymentbox extends PaymentModule
 
         $this->displayName = $this->l('Freepaymentbox');
         $this->description = $this->l('Module pour le paiement par PayBox');
+        $this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
+        
     }
 
     /**

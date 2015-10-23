@@ -109,10 +109,23 @@ class Freepaymentbox extends PaymentModule
         return parent::install() 
                 && $this->registerHook('payment') 
                 && $this->registerHook('paymentReturn')
+                && $this->registerHook ('displayPaymentEU')
                 && $this->addOrderState();
     }
         
-        private function saveSettings(){
+    /**
+     * Désinstallation
+     * 
+     * @return boolean
+     */
+    public function uninstall()
+	{
+	  if (!parent::uninstall()) return false;
+	 
+	  return true;
+	}
+	
+        private function _saveSettings(){
             foreach ($this->pb_config as $setting_name){
                 Configuration::updateValue($setting_name,Tools::getValue($setting_name));
             }
@@ -134,6 +147,23 @@ class Freepaymentbox extends PaymentModule
         return $this->display(__FILE__, 'payment.tpl');
     }
 
+	public function hookDisplayPaymentEU($params)
+	{
+		if (!$this->active)
+			return;
+
+		if (!$this->checkCurrency($params['cart']))
+			return;
+
+		$payment_options = array(
+			'cta_text' => $this->l('Pay by PayBox'),
+			'logo' => Media::getMediaPath(_PS_MODULE_DIR_.$this->name.'/logo.png'),
+			'action' => $this->context->link->getModuleLink($this->name, 'validation', array(), true)
+		);
+
+		return $payment_options;
+	}
+	
     /**
      * Données a ajouter dans le formulaire envoyé a PayBox
      * 

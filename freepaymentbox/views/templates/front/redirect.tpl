@@ -7,8 +7,6 @@
     
 <script type="text/javascript">
             {literal}
-                    $(document).ready(function() {
-                            $('#freepaymentbox_form').submit();
-                    });
+                document.getElementById ('freepaymentbox_form').submit ();
             {/literal}
 </script>

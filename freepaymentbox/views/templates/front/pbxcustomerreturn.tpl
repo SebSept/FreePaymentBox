@@ -18,4 +18,11 @@
  */
 *}
 <h2>Paiement sécurisé</h2>
-{$msg}
+<p>{$msg}</p>
+<p>{$msg2}</p>
+<script type="text/javascript">
+            {literal}
+                ajaxCart.refresh ();
+            {/literal}
+</script>
+

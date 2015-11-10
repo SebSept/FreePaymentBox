@@ -6,6 +6,7 @@
  * 
  * Fourni sans garantie.
  * 
+ * @author Claude Castello
  * @author Sébastien Monterisi   <sebastienmonterisi@yahoo.fr>  https://github.com/SebSept/FreePaymentBox   
  * @author Jean-François MAGNIER <jf.magnier@gmail.com>         https://github.com/lefakir//FreePaymentBox
  * @author ?@?                   <?>                            https://github.com/PrestaMath
@@ -19,8 +20,8 @@
 *}
 
 <p class="payment_module">
-	<a href="{$link->getModuleLink('freepaymentbox', 'redirect')}" 
-           title="{l s='Cliquer ici pour payer par carte bancaie' mod='freepaymentbox'}">
+	<a href="{$link->getModuleLink('freepaymentbox', 'redirect')|escape:'url'}" 
+           title="{l s='Cliquer ici pour payer par carte bancaire' mod='freepaymentbox'}">
 		<img src="{$base_dir_ssl}modules/freepaymentbox/img/cb.gif" alt="{l s='PayBox' mod='freepaymentbox'}" />
 		{l s='Payer par carte bancaire' mod='freepaymentbox'}
 	</a>
